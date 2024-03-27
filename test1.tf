@@ -28,20 +28,3 @@ resource "aws_subnet" "subnet1" {
   availability_zone = "us-east-1"
 }
 
-#create ec2
-# Get the latest Amazon Linux 2 AMI ID
-data "aws_ami" "linux-ami1" {
-  most_recent = true
-  filter {
-    name   = "name" // filter amis by name property
-    values = ["amzn2-ami-hvm-*-x86_64-gp2"]
-  }
-  }
-#ec2
-resource "aws_instance" "server-1" {
-  ami           = data.aws_ami.linux-ami1.id
-  instance_type = "t2.micro"
-  subnet_id     = aws_subnet.subnet1.id
-  key_name = "Key1"
-  security_groups = [ "All-traffic" ]
-}
