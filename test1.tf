@@ -21,10 +21,3 @@ resource "aws_vpc" "VPC1" {
 output "vpc1_id" {value = aws_vpc.VPC1.id}
 
 
-#subnet ----- create subnet inside above created vpc
-resource "aws_subnet" "subnet1" {
-  vpc_id            = aws_vpc.VPC1.id
-  cidr_block        = cidrsubnet(aws_vpc.VPC1.cidr_block, 4, 1)
-  availability_zone = "us-east-1"
-}
-
