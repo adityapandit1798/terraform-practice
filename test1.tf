@@ -5,7 +5,7 @@ terraform {
     }
   }
 }
-
+// this is a test comment
 provider "aws" {
   region  = var.region
 }
